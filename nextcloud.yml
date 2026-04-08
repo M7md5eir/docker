@@ -1,0 +1,19 @@
+name:
+  nextcloud
+services:
+  nextcloud:
+    image:
+      nextcloud:latest
+    container_name:
+      nextcloud
+    volumes:
+      - data:/var/www/html
+    network_mode:
+      bridge
+    restart:
+      unless-stopped
+    environment:
+      TZ:
+        Africa/Cairo
+volumes:
+  data:
