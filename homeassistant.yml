@@ -1,0 +1,24 @@
+name:
+  homeassistant
+services:
+  homeassistant:
+    image:
+      ghcr.io/home-assistant/home-assistant:stable
+    container_name:
+      homeassistant
+    ports:
+      - "8123:8123"
+    environment:
+      - TZ=Africa/Cairo
+    volumes:
+      - config:/config
+      - localtime:/etc/localtime:ro
+      - dbus:/run/dbus:ro
+    network_mode:
+      bridge
+    restart:
+      unless-stopped
+volumes:
+  config:
+  localtime:
+  dbus:
