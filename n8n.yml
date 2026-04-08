@@ -1,0 +1,29 @@
+name:
+  n8n
+services:
+  n8n:
+    image:
+      n8nio/n8n:latest
+    container_name:
+      n8n
+    volumes:
+      - data:/home/node/.n8n
+    ports:
+      - "5678:5678"
+    network_mode:
+      bridge
+    restart:
+      unless-stopped
+    environment:
+      N8N_PROTOCOL:
+        ${PROTOCOL}
+      N8N_HOST:
+        ${HOST}
+      WEBHOOK_URL:
+        ${PROTOCOL}://${HOST}
+      N8N_EDITOR_BASE_URL:
+        ${PROTOCOL}://${HOST}
+      GENERIC_TIMEZONE:
+        Africa/Cairo
+volumes:
+  data:
