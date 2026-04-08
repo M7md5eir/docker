@@ -1,0 +1,29 @@
+name:
+  npm
+services:
+  npm:
+    image:
+      jc21/nginx-proxy-manager:latest
+    container_name:
+      npm
+    volumes:
+      - data:/data
+      - letsencrypt:/etc/letsencrypt
+    network_mode:
+      bridge
+    ports:
+      - "80:80"
+      - "443:443"
+      - "81:81"
+    restart:
+      unless-stopped
+    environment:
+      - TZ=Africa/Cairo
+    environment:
+      TZ:
+        Africa/Cairo
+      DB_SQLITE_FILE:
+        /data/database.sqlite
+volumes:
+  data:
+  letsencrypt:
