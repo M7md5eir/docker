@@ -17,7 +17,8 @@ services:
     restart:
       unless-stopped
     environment:
-      - TZ=Africa/Cairo
+      TZ:
+        Africa/Cairo
 volumes:
   config:
   localtime:
