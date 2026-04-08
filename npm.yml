@@ -18,8 +18,6 @@ services:
     restart:
       unless-stopped
     environment:
-      - TZ=Africa/Cairo
-    environment:
       TZ:
         Africa/Cairo
       DB_SQLITE_FILE:
