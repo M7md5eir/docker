@@ -11,7 +11,9 @@ services:
       - localtime:/etc/localtime:ro
       - dbus:/run/dbus:ro
     network_mode:
-      host
+      bridge
+    ports:
+      - "8123:8123"
     restart:
       unless-stopped
     environment:
