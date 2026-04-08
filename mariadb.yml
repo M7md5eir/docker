@@ -1,0 +1,23 @@
+name:
+  mariadb
+services:
+  mariadb:
+    image:
+      mariadb:latest
+    container_name:
+      mariadb
+    volumes:
+      - data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    network_mode:
+      bridge
+    restart:
+      unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD:
+        ${MARIADB_ROOT_PASSWORD}
+    command:
+        ${MARIADB_EXTRA_FLAGS}
+volumes:
+  data:
