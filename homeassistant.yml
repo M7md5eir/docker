@@ -10,10 +10,8 @@ services:
       - config:/config
       - localtime:/etc/localtime:ro
       - dbus:/run/dbus:ro
-    ports:
-      - "8123:8123"
     network_mode:
-      bridge
+      host
     restart:
       unless-stopped
     environment:
