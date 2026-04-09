@@ -1,11 +1,11 @@
 name:
-  homeassistant
+  home-assistant
 services:
-  homeassistant:
+  home-assistant:
     image:
       ghcr.io/home-assistant/home-assistant:stable
     container_name:
-      homeassistant
+      home-assistant
     volumes:
       - config:/config
       - localtime:/etc/localtime:ro
@@ -17,8 +17,7 @@ services:
     restart:
       unless-stopped
     environment:
-      TZ:
-        Africa/Cairo
+      TZ: Africa/Cairo
 volumes:
   config:
   localtime:
