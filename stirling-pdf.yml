@@ -1,0 +1,29 @@
+name:
+  stirling-pdf
+services:
+  stirling-pdf:
+    image:
+      stirlingtools/stirling-pdf:latest
+    container_name:
+      stirling-pdf
+    volumes:
+      - tessdata:/usr/share/tessdata
+      - configs:/configs
+      - logs:/logs
+      - pipeline:/pipeline
+    network_mode:
+      bridge
+    ports:
+      - '8080:8080'
+    restart:
+      unless-stopped
+    environment:
+      SECURITY_ENABLELOGIN:
+        true
+      LANGS:
+        en_GB
+volumes:
+  tessdata:
+  configs:
+  logs:
+  pipeline:
