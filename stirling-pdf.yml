@@ -18,8 +18,9 @@ services:
     restart:
       unless-stopped
     environment:
-      SECURITY_ENABLELOGIN:
-        true
+      SECURITY_ENABLELOGIN: "true"
+      SECURITY_INITIALLOGIN_USERNAME: "administrator"
+      SECURITY_INITIALLOGIN_PASSWORD: "N0thing@9247957"
       LANGS:
         en_GB
 volumes:
