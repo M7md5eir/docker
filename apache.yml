@@ -1,0 +1,12 @@
+name:
+  apache
+services:
+  apache:
+    image:
+      httpd:latest
+    container_name:
+      apache
+    volumes:
+      - /home/ubuntu/images:/usr/local/apache2/htdocs/images
+    restart:
+      unless-stopped
