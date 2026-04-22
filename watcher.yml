@@ -1,0 +1,15 @@
+name:
+  watcher
+services:
+  watcher:
+    image:
+      python:3.11-alpine
+    container_name:
+      watcher
+    volumes:
+      - /home/ubuntu/images:/images
+      - ./watcher.py:/watcher.py
+    command:
+      sh -c "pip install watchdog -q && python3 /watcher.py"
+    restart:
+      unless-stopped
