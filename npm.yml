@@ -14,7 +14,7 @@ services:
     ports:
       - "7080:80"
       - "7443:443"
-      - "7081:81"
+      - "81:81"
     restart:
       unless-stopped
     environment:
