@@ -12,9 +12,9 @@ services:
     network_mode:
       bridge
     ports:
-      - "82:80"
-      - "443:443"
-      - "81:81"
+      - "7080:80"
+      - "7443:443"
+      - "7081:81"
     restart:
       unless-stopped
     environment:
