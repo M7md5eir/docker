@@ -19,6 +19,10 @@ services:
     environment:
       MARIADB_ROOT_PASSWORD:
         ${MARIADB_ROOT_PASSWORD}
+    volumes:
+      - type: volume
+        source: data
+        target: /var/lib/mysql
     command:
         ${MARIADB_EXTRA_FLAGS}
 volumes:
