@@ -7,9 +7,7 @@ services:
     container_name:
       npm
     networks:
-      default:
-        name:
-          npm
+      npm
     ports:
       - mode: ingress
         target: 80
@@ -44,3 +42,6 @@ volumes:
     name: dge_npm-data
   npm-letsencrypt:
     name: dge_npm-letsencrypt
+networks:
+  npm:
+    name: npm
