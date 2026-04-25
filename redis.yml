@@ -3,23 +3,23 @@ name: redis
 services:
   redis-cache:
     image:
-		redis:8.6.2-trixie
+      redis:8.6.2-trixie
     container_name:
-		redis-cache
+      redis-cache
     network_mode:
-		bridge
+      bridge
     restart:
-		unless-stopped
+      unless-stopped
 
   redis-queue:
     image:
-		redis:8.6.2-trixie
+      redis:8.6.2-trixie
     container_name:
-		redis-queue
+      redis-queue
     network_mode:
-		bridge
+      bridge
     restart:
-		unless-stopped
+      unless-stopped
     volumes:
       - type: volume
         source: data
