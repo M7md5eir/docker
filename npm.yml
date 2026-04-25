@@ -31,15 +31,13 @@ services:
         /data/database.sqlite
     volumes:
       - type: volume
-        source: npm-data
+        source: data
         target: /data
         volume: {}
       - type: volume
-        source: npm-letsencrypt
+        source: letsencrypt
         target: /etc/letsencrypt
         volume: {}
 volumes:
-  npm-data:
-    name: dge_npm-data
-  npm-letsencrypt:
-    name: dge_npm-letsencrypt
+  data:
+  letsencrypt:
