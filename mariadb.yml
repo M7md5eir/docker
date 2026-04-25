@@ -3,7 +3,7 @@ name:
 services:
   mariadb:
     image:
-      mariadb:latest
+      mariadb:11.8
     container_name:
       mariadb
     network_mode:
