@@ -6,12 +6,14 @@ services:
       mariadb:latest
     container_name:
       mariadb
-    volumes:
-      - data:/var/lib/mysql
+    networks:
+      default:
+        null
     ports:
-      - "3306:3306"
-    network_mode:
-      bridge
+      - mode: ingress
+        target: 3306
+        published: "3306"
+        protocol: tcp
     restart:
       unless-stopped
     environment:
