@@ -8,7 +8,8 @@ services:
       npm
     networks:
       default:
-        npm
+        name:
+          npm
     ports:
       - mode: ingress
         target: 80
