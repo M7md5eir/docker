@@ -6,9 +6,8 @@ services:
       mariadb:latest
     container_name:
       mariadb
-    networks:
-      default:
-        null
+    network_mode:
+      bridge
     ports:
       - mode: ingress
         target: 3306
