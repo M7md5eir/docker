@@ -1,14 +1,9 @@
-name:
-  npm
 services:
   npm:
-    image:
-      jc21/nginx-proxy-manager:latest
-    container_name:
-      npm
+    image: jc21/nginx-proxy-manager:latest
+    container_name: npm
     networks:
-      default:
-        null
+      - npm
     ports:
       - mode: ingress
         target: 80
@@ -22,13 +17,10 @@ services:
         target: 81
         published: "81"
         protocol: tcp
-    restart:
-      unless-stopped
+    restart: unless-stopped
     environment:
-      TZ:
-        Africa/Cairo
-      DB_SQLITE_FILE:
-        /data/database.sqlite
+      TZ: Africa/Cairo
+      DB_SQLITE_FILE: /data/database.sqlite
     volumes:
       - type: volume
         source: data
@@ -38,6 +30,9 @@ services:
         source: letsencrypt
         target: /etc/letsencrypt
         volume: {}
+networks:
+  npm:
+    name: npm
 volumes:
   data:
   letsencrypt:
