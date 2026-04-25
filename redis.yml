@@ -1,0 +1,30 @@
+name:
+  redis
+services:
+  redis-cache:
+    image:
+      redis:8.6.2-trixie
+    container_name:
+      redis-cache
+    network_mode:
+      bridge
+    restart:
+      unless-stopped
+
+  redis-queue:
+    image:
+      redis:8.6.2-trixie
+    container_name:
+      redis-queue
+    network_mode:
+      bridge
+    restart: 
+      unless-stopped
+    volumes:
+      - type: volume
+        source: data
+        target: /data
+	volume: {}
+
+volumes:
+  data:
