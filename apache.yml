@@ -9,6 +9,6 @@ services:
     volumes:
       - /home/ubuntu/images:/usr/local/apache2/htdocs/images
     ports:
-      - "80:80"
+      - "8099:80"
     restart:
       unless-stopped
