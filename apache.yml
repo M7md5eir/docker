@@ -7,8 +7,6 @@ services:
     container_name:
       apache
     volumes:
-      - /home/ubuntu/images/:/usr/local/apache2/htdocs/images
-    ports:
-      - "8081:80"
+      - /home/ubuntu/images:/usr/local/apache2/htdocs/images
     restart:
       unless-stopped
