@@ -8,5 +8,7 @@ services:
       apache
     volumes:
       - /home/ubuntu/images:/usr/local/apache2/htdocs/images
+    ports:
+      - "8080:80"
     restart:
       unless-stopped
