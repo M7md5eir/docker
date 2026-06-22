@@ -1,0 +1,41 @@
+name:
+  x-ui
+services:
+  x-ui:
+    image:
+      alireza7/x-ui:latest
+    container_name:
+      x-ui
+    network_mode:
+      bridge
+    ports:
+      - mode: ingress
+        target: 54321
+        published: "54321"
+        protocol: tcp
+
+      - mode: ingress
+        target: 443
+        published: "8443"
+        protocol: tcp
+
+      - mode: ingress
+        target: 80
+        published: "8080"
+        protocol: tcp
+
+    restart:
+      unless-stopped
+
+    environment:
+      XRAY_VMESS_AEAD_FORCED:
+        "false"
+
+    volumes:
+      - type: bind
+        source: ./db
+        target: /etc/x-ui
+
+      - type: bind
+        source: ./cert
+        target: /root/cert
